@@ -3,6 +3,13 @@
 		<title>{{ title }}</title>
 	</head>
 	<body>
+		<ul>
+			{% if request.user.is_authenticated %}
+				<li><a href="{% url 'logout' %}">Logout</a></li>
+			{% else %}
+				<li><a href="{% url 'login' %}">Login</a></li>
+			{% endif %}
+		</ul>
 		{% block main %}
 			<p>Default content displayed if block is not overridden</p>
 		{% endblock %}

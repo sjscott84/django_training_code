@@ -1,0 +1,14 @@
+<html>
+	<head>
+		<title>{{ title }}</title>
+	</head>
+	<body>
+		<ul>
+			<li><a href="{% url 'login' %}">Login</a></li>
+			<li><a href="{% url 'logout' %}">Logout</a></li>
+		</ul>
+		{% block main %}
+			<p>Default content displayed if block is not overridden</p>
+		{% endblock %}
+	</body>
+</html>
