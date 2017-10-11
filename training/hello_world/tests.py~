@@ -23,5 +23,5 @@ class BlogTest(TestCase):
 
 	def test_post_found(self):
 		blog = Blog.objects.create(title="a blog")
-		post = Post.objects.create(title='A test', author=self.user, body='This is a test', blog=blog)
+		Post.objects.create(title='A test', author=self.user, body='This is a test', blog=blog)
 		print(post)
