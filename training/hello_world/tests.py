@@ -24,4 +24,19 @@ class BlogTest(TestCase):
 	def test_post_found(self):
 		blog = Blog.objects.create(title="a blog")
 		post = Post.objects.create(title='A test', author=self.user, body='This is a test', blog=blog)
-		print(post)
+		response = self.client.get('/blog/post/{}/'.format(post.slug))
+		self.assertEqual(response.status_code, 200)
+
+		#To Programatically log in a user
+		#self.client.login(username=self.user.username, password='password')
+	
+	#Test if we have log in functionality
+	#def test_create_post_login_redirect(self):
+		#response = self.client.get('/blog/create_post/')
+		#self.assertEqual(response.status_code, 302)
+
+	#def test_create_post_logging_in(self):
+		#self.client.login(username=self.user.username, password='password')
+		#response = self.client.get('/blog/create_post/')
+		#self.assertEqual(response.status_code, 200)
+
