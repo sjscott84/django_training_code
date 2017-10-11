@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
+from django.urls import reverse
 
 # from django.http import HttpResponse
 from .forms import PostForm
@@ -31,7 +32,7 @@ def create_post(request):
 		if form.is_valid():
 			# create the post here
 			post = form.save()
-			return HttpResponseRedirect('blog_list')
+			return HttpResponseRedirect(reverse('blog_list'))
 	else:
 		form = PostForm()
 
