@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404
 from django.http import Http404, HttpResponseRedirect
 from django.urls import reverse
+from django.views.generic.edit import CreateView
 
 # from django.http import HttpResponse
 from .forms import PostForm
@@ -37,3 +38,11 @@ def create_post(request):
 		form = PostForm()
 
 	return render(request, 'create_post.html', {'form':form})
+
+class CreatePost(CreateView):
+	form_class = PostForm
+	template_name = 'create_post.html'
+	success_url = '/blog/'
+	form = PostForm
+
+

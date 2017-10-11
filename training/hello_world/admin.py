@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
 			'fields': ('body',)
 		}),
 		('Metadata', {
-			'fields': ('author', 'date'),
+			'fields': ('author',),
 			'classes': ('wide', 'collapse'),
 		})
     	]
